@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;.
+charset=iso-8859-1" />
+<meta http-equiv="Content-Language" content="en-us" />
+<title>Week 10 Pratical 9</title>
+<%= stylesheet_link_tag "style" %>
+</head>
+<body id="library">
+<div id="container">
+<div id="header">
+<h1>Personality Cinema Assesment</h1>
+<h3>Scientifically Proven!</h3>
+</div>
+<div id="content">
+<%= yield -%>
+</div>
+<div id="sidebar"></div>
+</div>
+<p align="center"> <%= image_tag("film4.jpg") %><%= image_tag("film1.jpg") %><%= image_tag("film2.jpg") %><%= image_tag("film3.jpg") %></p>
+<p align="center"> <%= image_tag("film7.jpg") %><%= image_tag("film6.jpg") %><%= image_tag("film5.jpg") %></p>
+</body>
+<footer>
+  <p align="center"><font size="1">This website tells lies</font></p>
+</footer>
+</html>

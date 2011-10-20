@@ -1,0 +1,92 @@
+<% if @fname.nil? and @myfilms.nil? then %>
+  <h1>Lets get started</h1>
+  <p>Please give me your name :</p>
+    <% form_tag :action => 'question' do %>
+      <p>Name : 
+        <%=text_field_tag 'usr_name', @fname %>
+        <%= submit_tag 'save' %>
+        <% end %>
+      </p>
+<% end %>
+  
+<% if @fname then %>
+      <p> Welcome <%= @fname %></p>
+          <ul>
+            <h2>Please enter the number of your preferred film (1 of 4 selections..)</h2>
+            <h4>Invalid entries will simply cause an invalid result</h4>
+          <p><% @myfilms.each do |f| %>
+              <%= f.film_id %> <%= f.film_name %>
+            <% end %>
+             <% form_tag :action => 'question' do %>
+               <li>Film 1 : 
+                <%=text_field_tag 'film_1', @film1 -%>
+                <%= submit_tag 'done' %>
+               </li>               
+            <% end %>
+          </p>
+      </ul>
+ <% end %>
+  
+ <% if @film1 then %>
+          <ul><h2>Selection 2 (2 of 4)</h2>
+          <p><% @myfilms.each do |f| %>
+              <%= f.film_id %> <%= f.film_name %>
+              <% end %>
+              <% form_tag :action => 'question' do %>
+                  <li>Film 2 : 
+                    <%=text_field_tag 'film_2', @film2 -%>
+                    <%= submit_tag 'done' %>
+                  </li>
+              <% end %>
+          </p>
+      </ul>
+  <% else %>
+        <% if @error then %>
+            <p><%= @error -%>)</p>
+        <% end %>
+  <% end %>
+  
+  <% if @film2 then %>
+          <ul><h2>Selection 3 (3 of 4)</h2>
+          <p><% @myfilms.each do |f| %>
+              <%= f.film_id %> <%= f.film_name %>
+              <% end %>
+             <% form_tag :action => 'question' do %>
+                <li>Film 3 : 
+                    <%=text_field_tag 'film_3', @film3 -%>
+                    <%= submit_tag 'done' %>
+                </li>
+            <% end %>
+          </p>
+          </ul>
+  <% else %>
+        <% if @error then %>
+            <p><%= @error -%>)</p>
+        <% end %>
+  <% end %>
+  
+  <% if @film3 then %>
+        <ul><h2>Selection 4 (hurray!)</h2>
+          <p><% @myfilms.each do |f| %>
+                <%= f.film_id %> <%= f.film_name %>
+              <% end %>
+              
+              <% form_tag :action => 'question' do %>
+                <li>Film 4 : 
+                  <%=text_field_tag 'film_4', @film4 -%>
+                  <%= submit_tag 'done' %>
+                </li>
+              <% end %>
+          </p>
+        </ul>
+  <% else %>
+            <p><An error occurred!</p>
+  <% end %>
+  <% if @film4 then %>
+        <ul><h2>RESULTS</h2>
+          <p>Lets move onto our <%= link_to 'results page', :controller =>"last_page", :action => "show" %>.</p>
+        </ul>
+  <% else %>
+            <p><An error occurred!</p>
+  <% end %>
+ 
